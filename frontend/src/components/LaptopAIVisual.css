@@ -557,3 +557,10 @@
     transform: perspective(800px) rotateX(10deg) rotateY(-15deg);
   }
 }
+
+/* ── Performance: GPU acceleration ── */
+.lap-perspective-stage,
+.lap-ground-shadow {
+  will-change: transform;
+  transform: translateZ(0);
+}

@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import CapabilitiesSection from './components/CapabilitiesSection';
-import WhyChooseUs from './components/WhyChooseUs';
-import StatsSection from './components/StatsSection';
-import IndustriesSection from './components/IndustriesSection';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
+
+// Lazy load below-fold sections for faster initial load
+const AboutSection      = lazy(() => import('./components/AboutSection'));
+const CapabilitiesSection = lazy(() => import('./components/CapabilitiesSection'));
+const WhyChooseUs       = lazy(() => import('./components/WhyChooseUs'));
+const IndustriesSection = lazy(() => import('./components/IndustriesSection'));
+const StatsSection      = lazy(() => import('./components/StatsSection'));
+const ContactSection    = lazy(() => import('./components/ContactSection'));
+const Footer            = lazy(() => import('./components/Footer'));
 
 function App() {
   return (
@@ -18,14 +20,18 @@ function App() {
       <Navbar />
       <main>
         <HeroSection />
-        <AboutSection />
-        <CapabilitiesSection />
-        <WhyChooseUs />
-        <IndustriesSection />
-        <StatsSection />
-        <ContactSection />
+        <Suspense fallback={null}>
+          <AboutSection />
+          <CapabilitiesSection />
+          <WhyChooseUs />
+          <IndustriesSection />
+          <StatsSection />
+          <ContactSection />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

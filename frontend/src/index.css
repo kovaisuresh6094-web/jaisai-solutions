@@ -38,16 +38,15 @@ body {
   cursor: default;
 }
 
-/* Custom Scrollbar */
+/* Hide Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 0px;
+  display: none;
 }
-::-webkit-scrollbar-track {
-  background: var(--dark);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--gold);
-  border-radius: 3px;
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* Selection */
