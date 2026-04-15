@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://jaisai-solutions-backend.up.railway.app/api/:path*"
+      "destination": "https://jaisai-solutions-production-54a9.up.railway.app/api/:path*"
     },
     {
       "source": "/(.*)",
